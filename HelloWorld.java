@@ -4,15 +4,25 @@
 class HelloWorld {
     public static void main(String[] args) {
         
-        try{testExce1.test1();}
-        catch(CustException e){
+        try{testExce3.test3();}
+        catch(ArithmeticException e){
            System.out.println("Hello, World!");  
         }
     }
 }
 class testExce1 {
-    public static void test1() throws CustException{
-        throw new CustException();
+    public static void test1() {
+        throw new ArithmeticException();
+    }
+}
+class testExce2 {
+    public static void test2() {
+        testExce1.test1();
+    }
+}
+class testExce3 {
+    public static void test3() {
+        testExce2.test2();
     }
 }
 
